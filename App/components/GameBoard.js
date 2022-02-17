@@ -1,8 +1,14 @@
 import React, { useContext, useState } from "react";
-import { View, text, StyleSheet, Dimensions } from "react-native";
+import { View, Text, StyleSheet, Dimensions } from "react-native";
 import Card from "./Card";
 
 import { GameContext } from "../util/gameContext";
+let tryOne = [];
+let tryTwo = [];
+let tryThree = [];
+let tryFour = [];
+let tryFive = [];
+let trySix = [];
 
 const screen = Dimensions.get("window");
 
@@ -29,6 +35,12 @@ const styles = StyleSheet.create({
 
 export default () => {
   const { keyVal, setKeyVal } = useContext(GameContext);
+
+  // for (let i=0; i<6; i++){
+  //   for(j=0;j<5;j++){
+
+  //   }
+  // }
   return (
     // create state counter and function that will
     // use state count to push keyVal to correct box

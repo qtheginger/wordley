@@ -1,5 +1,7 @@
-import React from "react";
-import { View, StyleSheet } from "react-native";
+import React, { useState, useContext } from "react";
+import { View, StyleSheet, Text } from "react-native";
+
+import { GameContext } from "../util/gameContext";
 
 const styles = StyleSheet.create({
   card: {
@@ -11,5 +13,9 @@ const styles = StyleSheet.create({
 });
 
 export default () => {
-  return <View style={styles.card} />;
+  return (
+    <View style={styles.card}>
+      <Text></Text>
+    </View>
+  );
 };

@@ -27,6 +27,8 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "description": "a wordle clone",
+    "githubUrl": "https://github.com/qtheginger/wordley"
   }
 }

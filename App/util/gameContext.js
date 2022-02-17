@@ -4,6 +4,7 @@ export const GameContext = createContext();
 
 export const GameContextProvider = ({ children }) => {
   const [keyVal, setKeyVal] = useState("");
+  const [cardVal, setCardVal] = useState([]);
 
   const fillBox = () => {
     setKeyVal(keyVal);
@@ -12,6 +13,8 @@ export const GameContextProvider = ({ children }) => {
   const contextValue = {
     keyVal,
     setKeyVal,
+    cardVal,
+    setCardVal,
   };
   return (
     <GameContext.Provider value={contextValue}>{children}</GameContext.Provider>

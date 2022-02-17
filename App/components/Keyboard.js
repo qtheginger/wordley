@@ -20,27 +20,46 @@ const styles = StyleSheet.create({
 
 export default () => {
   const { keyVal, setKeyVal } = useContext(GameContext);
+  const { cardVal, setCardVal } = useContext(GameContext);
   let rowOne = [];
   let rowTwo = [];
   let rowThree = [];
 
+  const keyValSetter = (keyName) => {
+    setKeyVal(keyName);
+  };
+  const cardValSetter = (keyName) => {
+    setCardVal([...cardVal, keyName]);
+  };
+  const combiner = (keyName) => {
+    keyValSetter(keyName);
+    if (keyName !== "Delete") {
+      cardValSetter(keyName);
+    } else {
+      const newArr = cardVal;
+      newArr.pop();
+      setCardVal(newArr);
+    }
+  };
   // loop through keyName to display keyboard
   for (let i = 0; i < KeyName.length; i++) {
+    x = i;
     if (i < 10) {
       rowOne.push(
-        <Key onPress={(keyVal) => setKeyVal(KeyName[i])} key={i} index={i} />
+        <Key onPress={() => combiner(KeyName[i])} key={i} index={i} />
       );
     } else if (i === 10 || i < 19) {
       rowTwo.push(
-        <Key onPress={(keyVal) => setKeyVal(KeyName[i])} key={i} index={i} />
+        <Key onPress={() => combiner(KeyName[i])} key={i} index={i} />
       );
     } else {
       rowThree.push(
-        <Key onPress={(keyVal) => setKeyVal(KeyName[i])} key={i} index={i} />
+        <Key onPress={() => combiner(KeyName[i])} key={i} index={i} />
       );
     }
   }
   console.log(keyVal);
+  console.log(cardVal);
   return (
     <>
       <View style={styles.keyBoard}>
