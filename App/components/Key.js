@@ -1,5 +1,5 @@
 import React from "react";
-import { Pressable, Alert, Text, StyleSheet } from "react-native";
+import { Pressable, Text, StyleSheet } from "react-native";
 
 import keyName from "../data/KeyName.json";
 
@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
 });
 
 export default (props) => {
-  console.log(props.index);
+  // console.log(props.index);
   return (
     <Pressable
       key={props.index}
@@ -29,7 +29,8 @@ export default (props) => {
         },
         styles.key,
       ]}
-      onPress={() => Alert.alert("button pressed")}
+      onPress={props.onPress}
+      // onPress={() => Alert.alert("button pressed", keyName[props.index])}
     >
       <Text style={styles.keyText}>{keyName[props.index]}</Text>
     </Pressable>

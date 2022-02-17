@@ -1,5 +1,10 @@
-import React from "react";
-import { View, text, StyleSheet } from "react-native";
+import React, { useContext, useState } from "react";
+import { View, text, StyleSheet, Dimensions } from "react-native";
+import Card from "./Card";
+
+import { GameContext } from "../util/gameContext";
+
+const screen = Dimensions.get("window");
 
 const styles = StyleSheet.create({
   container: {
@@ -7,8 +12,8 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "row",
     backgroundColor: "red",
-    justifyContent: "space-evenly",
-    alignContent: "space-around",
+    justifyContent: "center",
+    alignItems: "center",
   },
   card: {
     width: "15%",
@@ -17,54 +22,59 @@ const styles = StyleSheet.create({
     margin: 5,
   },
   gameBoard: {
-    flex: 1,
+    flex: 3,
+    marginBottom: screen.height * 0.05,
   },
 });
 
 export default () => {
+  const { keyVal, setKeyVal } = useContext(GameContext);
   return (
+    // create state counter and function that will
+    // use state count to push keyVal to correct box
+    // replace with for loops like keyboard
     <View style={styles.gameBoard}>
       <View style={styles.container}>
-        <View style={styles.card} />
-        <View style={styles.card} />
-        <View style={styles.card} />
-        <View style={styles.card} />
-        <View style={styles.card} />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
       </View>
       <View style={styles.container}>
-        <View style={styles.card} />
-        <View style={styles.card} />
-        <View style={styles.card} />
-        <View style={styles.card} />
-        <View style={styles.card} />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
       </View>
       <View style={styles.container}>
-        <View style={styles.card} />
-        <View style={styles.card} />
-        <View style={styles.card} />
-        <View style={styles.card} />
-        <View style={styles.card} />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
       </View>
       <View style={styles.container}>
-        <View style={styles.card} />
-        <View style={styles.card} />
-        <View style={styles.card} />
-        <View style={styles.card} />
-        <View style={styles.card} />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
       </View>
       <View style={styles.container}>
-        <View style={styles.card} />
-        <View style={styles.card} />
-        <View style={styles.card} />
-        <View style={styles.card} />
-        <View style={styles.card} />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
       </View>
       <View style={styles.container}>
-        <View style={styles.card} />
-        <View style={styles.card} />
-        <View style={styles.card} />
-        <View style={styles.card} />
-        <View style={styles.card} />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
       </View>
     </View>
   );
